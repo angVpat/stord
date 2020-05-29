@@ -16,8 +16,10 @@ namespace WindowsForms_projet
         public MainForm()
         {
             InitializeComponent();
-            MainMenuStrip menuStrip = new MainMenuStrip();
-            Controls.Add(menuStrip);
+            var menuStrip = new MainMenuStrip();
+            var mTabControl = new MainTabControl();
+            Controls.AddRange(new Control[] { mTabControl, menuStrip});
+            mTabControl.TabPages.Add("Onglet 1");
         }
     }
 }

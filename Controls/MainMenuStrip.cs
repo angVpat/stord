@@ -7,17 +7,20 @@ using System.Windows.Forms;
 
 namespace WindowsForms_projet.Controls
 {
-    class MainMenuStrip : MenuStrip
+    public class MainMenuStrip : MenuStrip
     {
+        private const string NAME = "MainMenuStrip";
         public MainMenuStrip()
         {
-            Name = "MainMenuStrip";
+            Name = NAME;
             Dock = DockStyle.Top;
 
-            fileMenu();
-            editMenu();
+            FileMenu();
+            EditMenu();
+            FormatMenu();
+            ViewMenu();
         }
-        public void fileMenu() {
+        public void FileMenu() {
             var fileMenu = new ToolStripMenuItem("Fichier");
 
             var NewMenu = new ToolStripMenuItem("Nouveau", null, null, Keys.Control | Keys.N);
@@ -29,7 +32,7 @@ namespace WindowsForms_projet.Controls
             fileMenu.DropDownItems.AddRange(new ToolStripItem[] { NewMenu, OpenMenu, SaveMenu, SaveAsMenu, QuitMenu });
             Items.Add(fileMenu);
         }
-        public void editMenu()
+        public void EditMenu()
         {
             var editMenu = new ToolStripMenuItem("Edition");
 
@@ -39,5 +42,35 @@ namespace WindowsForms_projet.Controls
             editMenu.DropDownItems.AddRange(new ToolStripItem[] { CancelMenu, RestoreMenu });
             Items.Add(editMenu);
         }
+        public void FormatMenu()
+        {
+            var formatMenu = new ToolStripMenuItem("Format");
+
+            var FormMenu = new ToolStripMenuItem("Format");
+            var FontMenu = new ToolStripMenuItem("Police");
+
+            formatMenu.DropDownItems.AddRange(new ToolStripItem[] { FormMenu, FontMenu });
+            Items.Add(formatMenu);
+        }
+        public void ViewMenu() {
+
+            var viewMenu = new ToolStripMenuItem("Affichage");
+
+                var alwaysMenu = new ToolStripMenuItem("Toujous devant");
+                var zoomMenu = new ToolStripMenuItem("Zoom");
+
+                    var zoomStMenu = new ToolStripMenuItem("Zoom avant", null, null, Keys.Control|Keys.Add);
+                    var zoomDoMenu = new ToolStripMenuItem("Zoom arrière", null,null, Keys.Control | Keys.Subtract);
+                    var zoomReMenu = new ToolStripMenuItem("Zoom par défaut", null, null, Keys.Control | Keys.Divide);
+                    zoomMenu.DropDownItems.AddRange(new ToolStripItem[] { zoomStMenu, zoomDoMenu, zoomReMenu });
+
+            zoomStMenu.ShortcutKeyDisplayString = "Ctrl +";
+            zoomDoMenu.ShortcutKeyDisplayString = "Ctrl -";
+            zoomReMenu.ShortcutKeyDisplayString = "Ctrl /";
+            viewMenu.DropDownItems.AddRange(new ToolStripItem[] { alwaysMenu, zoomMenu });
+
+            Items.Add(viewMenu);
+        }
+
     }
 }

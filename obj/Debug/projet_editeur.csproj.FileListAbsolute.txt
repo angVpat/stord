@@ -1,0 +1,10 @@
+C:\Users\jeton\source\repos\WindowsForms_projet\bin\Debug\WindowsForms_projet.exe.config
+C:\Users\jeton\source\repos\WindowsForms_projet\bin\Debug\WindowsForms_projet.exe
+C:\Users\jeton\source\repos\WindowsForms_projet\bin\Debug\WindowsForms_projet.pdb
+C:\Users\jeton\source\repos\WindowsForms_projet\obj\Debug\projet_editeur.csprojAssemblyReference.cache
+C:\Users\jeton\source\repos\WindowsForms_projet\obj\Debug\WindowsForms_projet.MainForm.resources
+C:\Users\jeton\source\repos\WindowsForms_projet\obj\Debug\WindowsForms_projet.Properties.Resources.resources
+C:\Users\jeton\source\repos\WindowsForms_projet\obj\Debug\projet_editeur.csproj.GenerateResource.cache
+C:\Users\jeton\source\repos\WindowsForms_projet\obj\Debug\projet_editeur.csproj.CoreCompileInputs.cache
+C:\Users\jeton\source\repos\WindowsForms_projet\obj\Debug\WindowsForms_projet.exe
+C:\Users\jeton\source\repos\WindowsForms_projet\obj\Debug\WindowsForms_projet.pdb
