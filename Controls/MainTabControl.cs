@@ -11,7 +11,7 @@ namespace WindowsForms_projet.Controls
     {
         private const string NAME = "MainTabControl";
        
-        public MainTabControl() {
+        public MainTabControl() { //Constructeur
             ContextMenuStrip = new TabControlContextMS();
             Name = NAME;
             ContextMenuStrip contextMenuStrip;

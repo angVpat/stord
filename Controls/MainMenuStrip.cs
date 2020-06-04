@@ -10,16 +10,21 @@ namespace WindowsForms_projet.Controls
     public class MainMenuStrip : MenuStrip
     {
         private const string NAME = "MainMenuStrip";
-        public MainMenuStrip()
+        private FontDialog _fontDialog;
+        public MainMenuStrip() //Constructeur
         {
             Name = NAME;
             Dock = DockStyle.Top;
 
+            _fontDialog = new FontDialog();
+
+            //appel des fonctions de mon menu dans la classe MainMenuStrip
             FileMenu();
             EditMenu();
             FormatMenu();
             ViewMenu();
         }
+        // Définition des différentes fonctions
         public void FileMenu() {
             var fileMenu = new ToolStripMenuItem("Fichier");
 
@@ -36,20 +41,29 @@ namespace WindowsForms_projet.Controls
         {
             var editMenu = new ToolStripMenuItem("Edition");
 
-            var CancelMenu = new ToolStripMenuItem("Annuler", null, null, Keys.Control | Keys.Z);
-            var RestoreMenu = new ToolStripMenuItem("Restaurer", null, null, Keys.Control | Keys.Y);
-           
-            editMenu.DropDownItems.AddRange(new ToolStripItem[] { CancelMenu, RestoreMenu });
+            var Undo = new ToolStripMenuItem("Annuler", null, null, Keys.Control | Keys.Z);
+            var Redo = new ToolStripMenuItem("Restaurer", null, null, Keys.Control | Keys.Y);
+
+            Undo.Click += (s, e) => { if (MainForm.RichTextBox.CanUndo) MainForm.RichTextBox.Undo(); };
+                //Ssi on peut annuler alors on annule. Cancel= Undo, Restore = Redo
+            Redo.Click += (s, e) => { if (MainForm.RichTextBox.CanRedo) MainForm.RichTextBox.Redo(); };
+
+            editMenu.DropDownItems.AddRange(new ToolStripItem[] { Undo, Redo });
             Items.Add(editMenu);
         }
         public void FormatMenu()
         {
             var formatMenu = new ToolStripMenuItem("Format");
 
-            var FormMenu = new ToolStripMenuItem("Format");
+            //var FormMenu = new ToolStripMenuItem("Format");
             var FontMenu = new ToolStripMenuItem("Police");
+            FontMenu.Click += (s, e) => {
+                _fontDialog.Font = MainForm.RichTextBox.Font;
+                _fontDialog.ShowDialog(); //afficher les différentes polices
+                MainForm.RichTextBox.Font = _fontDialog.Font;
+            };
 
-            formatMenu.DropDownItems.AddRange(new ToolStripItem[] { FormMenu, FontMenu });
+            formatMenu.DropDownItems.AddRange(new ToolStripItem[] {FontMenu });
             Items.Add(formatMenu);
         }
         public void ViewMenu() {
@@ -69,6 +83,37 @@ namespace WindowsForms_projet.Controls
             zoomReMenu.ShortcutKeyDisplayString = "Ctrl /";
             viewMenu.DropDownItems.AddRange(new ToolStripItem[] { alwaysMenu, zoomMenu });
 
+            alwaysMenu.Click += (s, e) =>
+            {
+                if (alwaysMenu.Checked)
+                {
+                    alwaysMenu.Checked = false;
+                    Program.MainForm.TopMost = false;
+                }
+                else
+                {
+                    alwaysMenu.Checked = true;
+                    Program.MainForm.TopMost = true;
+                }
+            };
+
+            zoomStMenu.Click += (s, e) =>
+            {
+                if (MainForm.RichTextBox.ZoomFactor < 3F)
+                {
+                    MainForm.RichTextBox.ZoomFactor += 0.3F;
+                }
+            };
+
+            zoomDoMenu.Click += (s, e) =>
+            {
+                if (MainForm.RichTextBox.ZoomFactor > 3F)
+                {
+                    MainForm.RichTextBox.ZoomFactor -= 0.3F;
+                }
+            };
+
+            zoomReMenu.Click += (s, e) => { MainForm.RichTextBox.ZoomFactor = 1F; };
             Items.Add(viewMenu);
         }
 

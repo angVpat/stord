@@ -8,6 +8,7 @@ namespace WindowsForms_projet
 {
     static class Program
     {
+        public static MainForm MainForm;
         /// <summary>
         /// Point d'entrée principal de l'application.
         /// </summary>
@@ -16,7 +17,9 @@ namespace WindowsForms_projet
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+
+            MainForm = new MainForm();
+            Application.Run(MainForm);
         }
     }
 }
