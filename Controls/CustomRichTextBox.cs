@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 using System.Windows.Forms;
-using System.Drawing;
 
 namespace WindowsForms_projet.Controls
 {
-   public class CustomRichTextBox : RichTextBox
+    public class CustomRichTextBox : RichTextBox
     {
         private const string NAME = "RtbTextFileContents";
         public CustomRichTextBox()
@@ -17,7 +12,9 @@ namespace WindowsForms_projet.Controls
             AcceptsTab = true;
             Font = new Font("Arial", 12.0F, FontStyle.Regular);
             Dock = DockStyle.Fill;
-            BorderStyle = BorderStyle.None;
+            BorderStyle = BorderStyle.Fixed3D;
+            BackColor = Color.FromArgb(35, 37, 46);
+            ForeColor= Color.FromArgb(255, 255, 255);
             ContextMenuStrip = new RichTextBoxContextMS(this);
         }
     }

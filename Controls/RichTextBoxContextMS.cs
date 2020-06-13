@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 using System.Windows.Forms;
 
 namespace WindowsForms_projet.Controls
 {
     public class RichTextBoxContextMS : ContextMenuStrip
     {
-        
-        private  RichTextBox _richtextBox; 
+
+        private RichTextBox _richtextBox;
         private const string NAME = "RtbContextMenuStrip";
         public RichTextBoxContextMS(RichTextBox richtextBox) // Constructeur
         {
@@ -21,10 +17,11 @@ namespace WindowsForms_projet.Controls
             var Copy = new ToolStripMenuItem("Copier");
             var Paste = new ToolStripMenuItem("Coller");
             var SelectAll = new ToolStripMenuItem("Selectionner tout");
-
+            BackColor = Color.FromArgb(35, 37, 46);
+            ForeColor = Color.FromArgb(255, 255, 255);
             Cut.Click += (s, e) => richtextBox.Cut();
             Copy.Click += (s, e) => richtextBox.Copy();
-            SelectAll.Click += (s, e) => richtextBox.Paste();
+            Paste.Click += (s, e) => richtextBox.Paste();
             SelectAll.Click += (s, e) => richtextBox.SelectAll();
             Items.AddRange(new ToolStripItem[] { Cut, Copy, Paste, SelectAll });
         }

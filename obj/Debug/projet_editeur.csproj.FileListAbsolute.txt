@@ -8,3 +8,13 @@ C:\Users\jeton\source\repos\WindowsForms_projet\obj\Debug\projet_editeur.csproj.
 C:\Users\jeton\source\repos\WindowsForms_projet\obj\Debug\projet_editeur.csproj.CoreCompileInputs.cache
 C:\Users\jeton\source\repos\WindowsForms_projet\obj\Debug\WindowsForms_projet.exe
 C:\Users\jeton\source\repos\WindowsForms_projet\obj\Debug\WindowsForms_projet.pdb
+C:\Users\personnel\Documents\Programming Universe\Projects\projets en cour\prj c# - stord\bin\Debug\WindowsForms_projet.exe.config
+C:\Users\personnel\Documents\Programming Universe\Projects\projets en cour\prj c# - stord\bin\Debug\WindowsForms_projet.exe
+C:\Users\personnel\Documents\Programming Universe\Projects\projets en cour\prj c# - stord\bin\Debug\WindowsForms_projet.pdb
+C:\Users\personnel\Documents\Programming Universe\Projects\projets en cour\prj c# - stord\obj\Debug\projet_editeur.csprojAssemblyReference.cache
+C:\Users\personnel\Documents\Programming Universe\Projects\projets en cour\prj c# - stord\obj\Debug\WindowsForms_projet.MainForm.resources
+C:\Users\personnel\Documents\Programming Universe\Projects\projets en cour\prj c# - stord\obj\Debug\WindowsForms_projet.Properties.Resources.resources
+C:\Users\personnel\Documents\Programming Universe\Projects\projets en cour\prj c# - stord\obj\Debug\projet_editeur.csproj.GenerateResource.cache
+C:\Users\personnel\Documents\Programming Universe\Projects\projets en cour\prj c# - stord\obj\Debug\projet_editeur.csproj.CoreCompileInputs.cache
+C:\Users\personnel\Documents\Programming Universe\Projects\projets en cour\prj c# - stord\obj\Debug\WindowsForms_projet.exe
+C:\Users\personnel\Documents\Programming Universe\Projects\projets en cour\prj c# - stord\obj\Debug\WindowsForms_projet.pdb

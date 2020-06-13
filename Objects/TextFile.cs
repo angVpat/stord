@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.IO;
 
 namespace WindowsForms_projet.Objects
 {
     public class TextFile
     {
+        /// <summary>
+        /// constructeur de la class
+        /// </summary>
         public TextFile()
         {
 
@@ -18,6 +16,7 @@ namespace WindowsForms_projet.Objects
             FileName = fileName;
             SafeFileName = Path.GetFileName(fileName);
         }
+
         //Chemin d'accès et nom du fichier
         public string FileName { get; set; }
         //Chemin d'accès et nom du fichier BackUp
