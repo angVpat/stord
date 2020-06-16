@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 using WindowsForms_projet.Objects;
 
@@ -10,6 +11,7 @@ namespace WindowsForms_projet.Controls
 
         private MainForm _form;
         private FontDialog _fontDialog;
+        private OpenFileDialog _openFileDialog;
         public MainMenuStrip() //Constructeur
         {
             Name = NAME;
@@ -17,6 +19,7 @@ namespace WindowsForms_projet.Controls
             BackColor = Color.FromArgb(35, 37, 46);
             ForeColor = Color.FromArgb(255, 255, 255);
             _fontDialog = new FontDialog();
+            _openFileDialog = new OpenFileDialog();
 
             //appel des fonctions de mon menu dans la classe MainMenuStrip
             FileMenu();
@@ -44,22 +47,45 @@ namespace WindowsForms_projet.Controls
             newFile.Click += (s, e) =>
              {
                  var tabControl = _form.MainTabControl;
-                 var tabPageCount = tabControl.TabPages.Count;
+                 var tabCount = tabControl.TabCount;
 
-                 var fileName = $"Sans Titre {tabPageCount + 1}";
+                 var fileName = $"Sans Titre {tabCount + 1}";
                  var file = new TextFile(fileName);
                  var rtb = new CustomRichTextBox();
                  tabControl.TabPages.Add(file.SafeFileName);
 
-                 var newTabPages = tabControl.TabPages[tabPageCount];
+                 var newTabPages = tabControl.TabPages[tabCount];
 
                  newTabPages.Controls.Add(rtb);
                  tabControl.SelectedTab = newTabPages;
-                 _form.Session.TextFiles.Add(file);
+                 _form.Session.Files.Add(file);
                  _form.CurrentFile = file;
                  _form.CurrentRtb = rtb;
              };
-            fileMenu.DropDownItems.AddRange(new ToolStripItem[] { newFile, open, save, saveAs, quit });
+
+            open.Click += async(s, e) =>
+            {
+                if(_openFileDialog.ShowDialog()==DialogResult.OK)
+                {
+                    var tabControl = _form.MainTabControl;
+                    var tabCount = tabControl.TabCount;
+                    var file = new TextFile(_openFileDialog.FileName);
+                    var rtb = new CustomRichTextBox();
+                    _form.Text = $"{file.FileName} - stord";
+                    using(StreamReader reader=new StreamReader(file.FileName))
+                    {
+                        file.Contents =await reader.ReadToEndAsync();
+                    }
+                    rtb.Text = file.Contents;
+                    tabControl.TabPages.Add(file.SafeFileName);
+                    tabControl.TabPages[tabCount].Controls.Add(rtb);
+                    _form.Session.Files.Add(file);
+                    _form.CurrentRtb = rtb;
+                    _form.CurrentFile= file;
+                    tabControl.SelectedTab = tabControl.TabPages[tabCount];
+                }
+            };
+           fileMenu.DropDownItems.AddRange(new ToolStripItem[] { newFile, open, save, saveAs, quit });
             Items.Add(fileMenu);
         }
         public void EditMenu()

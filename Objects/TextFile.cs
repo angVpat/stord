@@ -1,5 +1,5 @@
-﻿using System.IO;
-
+﻿using System;
+using System.IO;
 namespace WindowsForms_projet.Objects
 {
     public class TextFile
@@ -15,6 +15,11 @@ namespace WindowsForms_projet.Objects
         {
             FileName = fileName;
             SafeFileName = Path.GetFileName(fileName);
+            if(FileName.StartsWith("Sans Titre"))
+            {
+                SafeBackUpFileName = $"{fileName}@{DateTime.Now:dd-MM-yyyy-MM-mm-ss}";
+                BackUpFileName = Path.Combine(Session.BackupPath,SafeBackUpFileName);
+            }
         }
 
         //Chemin d'accès et nom du fichier
