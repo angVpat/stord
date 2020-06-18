@@ -15,10 +15,10 @@ namespace WindowsForms_projet.Objects
         {
             FileName = fileName;
             SafeFileName = Path.GetFileName(fileName);
-            if(FileName.StartsWith("Sans Titre"))
+            if (FileName.StartsWith("Sans Titre"))
             {
                 SafeBackUpFileName = $"{fileName}@{DateTime.Now:dd-MM-yyyy-MM-mm-ss}";
-                BackUpFileName = Path.Combine(Session.BackupPath,SafeBackUpFileName);
+                BackUpFileName = Path.Combine(Session.BackupPath, SafeBackUpFileName);
             }
         }
 

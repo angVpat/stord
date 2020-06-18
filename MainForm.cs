@@ -74,13 +74,13 @@ namespace WindowsForms_projet
                 CurrentRtb.Select();
 
                 MainTabControl.SelectedIndex = activeIndex;
-                Text = $"{CurrentFile.FileName} - Notepad.NET";
+                Text = $"{CurrentFile.FileName} - Stord";
             }
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-
+            Session.ActiveIndex = MainTabControl.SelectedIndex;
             Session.Save();
 
             foreach(var file in Session.Files)

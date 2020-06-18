@@ -14,7 +14,7 @@ namespace WindowsForms_projet.Controls
             Dock = DockStyle.Fill;
             BorderStyle = BorderStyle.Fixed3D;
             BackColor = Color.FromArgb(35, 37, 46);
-            ForeColor= Color.FromArgb(255, 255, 255);
+            ForeColor = Color.FromArgb(255, 255, 255);
             ContextMenuStrip = new RichTextBoxContextMS(this);
         }
     }
