@@ -27,7 +27,7 @@ namespace WindowsForms_projet.Controls
             {
                 _form.CurrentFile = _form.Session.Files[SelectedIndex];
                 _form.CurrentRtb = (CustomRichTextBox)_form.MainTabControl.TabPages[SelectedIndex].Controls.Find("RtbTextFileContents", true).First();
-                _form.Text = $"{_form.CurrentFile.FileName} - Notepad.NET";
+                _form.Text = $"{_form.CurrentFile.FileName} - Stord.NET";
             };
             //Permet aux clics droits et gauches de sélectionner un fichier ouvert
             MouseUp += (s, e) => 
