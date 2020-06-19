@@ -1,7 +1,10 @@
 ﻿using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 using WindowsForms_projet.Objects;
+using System.Linq;
+using WindowsForms_projet.Services;
 
 namespace WindowsForms_projet.Controls
 {
@@ -12,6 +15,7 @@ namespace WindowsForms_projet.Controls
         private MainForm _form;
         private FontDialog _fontDialog;
         private OpenFileDialog _openFileDialog;
+        private SaveFileDialog _saveFileDialog;
         public MainMenuStrip() //Constructeur
         {
             Name = NAME;
@@ -20,6 +24,7 @@ namespace WindowsForms_projet.Controls
             ForeColor = Color.FromArgb(255, 255, 255);
             _fontDialog = new FontDialog();
             _openFileDialog = new OpenFileDialog();
+            _saveFileDialog = new SaveFileDialog();
 
             //appel des fonctions de mon menu dans la classe MainMenuStrip
             FileMenu();
@@ -41,7 +46,7 @@ namespace WindowsForms_projet.Controls
             var newFile = new ToolStripMenuItem("Nouveau", null, null, Keys.Control | Keys.N);
             var open = new ToolStripMenuItem("Ouvrir", null, null, Keys.Control | Keys.O);
             var save = new ToolStripMenuItem("Enregistrer", null, null, Keys.Control | Keys.S);
-            var saveAs = new ToolStripMenuItem("Enregistrer sous", null, null, Keys.Control | Keys.Shift | Keys.N);
+            var saveAs = new ToolStripMenuItem("Enregistrer sous", null, null, Keys.Control | Keys.Shift | Keys.S);
             var quit = new ToolStripMenuItem("Quitter", null, null, Keys.Alt | Keys.F4);
 
             newFile.Click += (s, e) =>
@@ -57,8 +62,8 @@ namespace WindowsForms_projet.Controls
                  var newTabPages = tabControl.TabPages[tabCount];
 
                  newTabPages.Controls.Add(rtb);
-                 tabControl.SelectedTab = newTabPages;
                  _form.Session.Files.Add(file);
+                 tabControl.SelectedTab = newTabPages;
                  _form.CurrentFile = file;
                  _form.CurrentRtb = rtb;
              };
@@ -71,7 +76,7 @@ namespace WindowsForms_projet.Controls
                     var tabCount = tabControl.TabCount;
                     var file = new TextFile(_openFileDialog.FileName);
                     var rtb = new CustomRichTextBox();
-                    _form.Text = $"{file.FileName} - stord";
+                    _form.Text = $"{file.FileName} - Stord";
                     using(StreamReader reader=new StreamReader(file.FileName))
                     {
                         file.Contents =await reader.ReadToEndAsync();
@@ -85,7 +90,77 @@ namespace WindowsForms_projet.Controls
                     tabControl.SelectedTab = tabControl.TabPages[tabCount];
                 }
             };
-           fileMenu.DropDownItems.AddRange(new ToolStripItem[] { newFile, open, save, saveAs, quit });
+
+            save.Click += async (s, e) =>
+            {
+                var CurrentFile = _form.CurrentFile;
+                var CurrentRtbText = _form.CurrentRtb.Text;
+
+                if(CurrentFile.Contents != CurrentRtbText)
+                {
+                    if (File.Exists(CurrentFile.FileName))
+                    {
+                        using (StreamWriter writer = File.CreateText(CurrentFile.FileName))
+                        {
+                            await writer.WriteAsync(CurrentFile.Contents);
+                        }
+                        CurrentFile.Contents = CurrentRtbText;
+
+                        _form.MainTabControl.SelectedTab.Text = CurrentFile.SafeFileName;
+                        _form.Text = CurrentFile.FileName;
+                        _form.CurrentFile = CurrentFile;
+                    }
+                    else
+                    {
+                        saveAs.PerformClick();
+                    }
+                }
+            };
+
+            saveAs.Click += async(s, e) => 
+            { 
+                if(_saveFileDialog.ShowDialog() == DialogResult.OK) 
+                {
+                    var newFileName = _saveFileDialog.FileName;
+                    var alreadyExists = false;
+
+                    foreach (var file in _form.Session.Files)
+                    {
+                        if(file.FileName == newFileName)
+                        {
+                            MessageBox.Show("Ce fichier est déja ouvert dans Stord.NET", "ERREUR",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            alreadyExists = true;
+                            break;
+                        }
+                    }
+                    //Si le fichier à enregistrer n'existe pas déja
+                    if(! alreadyExists) 
+                    //Créer ou ouvrir un fichier pour mettre du texte
+                    {
+                        var file = new TextFile(newFileName) { Contents = _form.CurrentRtb.Text };
+
+                        var oldfile = _form.Session.Files.Where(x => x.FileName == _form.CurrentFile.FileName).First();
+                       
+                        _form.Session.Files.Replace(oldfile, file);
+
+                        using (StreamWriter writer = File.CreateText(file.FileName))
+                        {
+                            await writer.WriteAsync(file.Contents);
+                        }
+                        _form.MainTabControl.SelectedTab.Text = file.SafeFileName;
+                        _form.Text = file.FileName;
+                        _form.CurrentFile = file;
+
+                    }
+                }
+            };
+
+            quit.Click += (s, e) =>
+            {
+                Application.Exit();
+            };
+            fileMenu.DropDownItems.AddRange(new ToolStripItem[] { newFile, open, save, saveAs, quit });
             Items.Add(fileMenu);
         }
         public void EditMenu()

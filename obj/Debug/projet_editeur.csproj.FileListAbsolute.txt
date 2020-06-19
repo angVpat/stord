@@ -18,3 +18,13 @@ C:\Users\personnel\Documents\Programming Universe\Projects\projets en cour\prj c
 C:\Users\personnel\Documents\Programming Universe\Projects\projets en cour\prj c# - stord\obj\Debug\projet_editeur.csproj.CoreCompileInputs.cache
 C:\Users\personnel\Documents\Programming Universe\Projects\projets en cour\prj c# - stord\obj\Debug\WindowsForms_projet.exe
 C:\Users\personnel\Documents\Programming Universe\Projects\projets en cour\prj c# - stord\obj\Debug\WindowsForms_projet.pdb
+C:\Users\jeton\Documents\All\Ange\Ange\UNIVERS PROGRAMMATION\projetC#\stord\bin\Debug\WindowsForms_projet.exe.config
+C:\Users\jeton\Documents\All\Ange\Ange\UNIVERS PROGRAMMATION\projetC#\stord\bin\Debug\WindowsForms_projet.exe
+C:\Users\jeton\Documents\All\Ange\Ange\UNIVERS PROGRAMMATION\projetC#\stord\bin\Debug\WindowsForms_projet.pdb
+C:\Users\jeton\Documents\All\Ange\Ange\UNIVERS PROGRAMMATION\projetC#\stord\obj\Debug\projet_editeur.csprojAssemblyReference.cache
+C:\Users\jeton\Documents\All\Ange\Ange\UNIVERS PROGRAMMATION\projetC#\stord\obj\Debug\WindowsForms_projet.MainForm.resources
+C:\Users\jeton\Documents\All\Ange\Ange\UNIVERS PROGRAMMATION\projetC#\stord\obj\Debug\WindowsForms_projet.Properties.Resources.resources
+C:\Users\jeton\Documents\All\Ange\Ange\UNIVERS PROGRAMMATION\projetC#\stord\obj\Debug\projet_editeur.csproj.GenerateResource.cache
+C:\Users\jeton\Documents\All\Ange\Ange\UNIVERS PROGRAMMATION\projetC#\stord\obj\Debug\projet_editeur.csproj.CoreCompileInputs.cache
+C:\Users\jeton\Documents\All\Ange\Ange\UNIVERS PROGRAMMATION\projetC#\stord\obj\Debug\WindowsForms_projet.exe
+C:\Users\jeton\Documents\All\Ange\Ange\UNIVERS PROGRAMMATION\projetC#\stord\obj\Debug\WindowsForms_projet.pdb
