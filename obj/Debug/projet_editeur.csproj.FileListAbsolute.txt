@@ -28,3 +28,13 @@ C:\Users\personnel\Documents\Programming Universe\Projects\projets en cour\prj c
 C:\Users\personnel\Documents\Programming Universe\Projects\projets en cour\prj c# - stord\obj\Debug\Stord.Properties.Resources.resources
 C:\Users\personnel\Documents\Programming Universe\Projects\projets en cour\prj c# - stord\obj\Debug\Stord.exe
 C:\Users\personnel\Documents\Programming Universe\Projects\projets en cour\prj c# - stord\obj\Debug\Stord.pdb
+C:\Users\jeton\Desktop\projet c sharp\stord\bin\Debug\Stord.exe.config
+C:\Users\jeton\Desktop\projet c sharp\stord\bin\Debug\Stord.exe
+C:\Users\jeton\Desktop\projet c sharp\stord\bin\Debug\Stord.pdb
+C:\Users\jeton\Desktop\projet c sharp\stord\obj\Debug\WindowsForms_projet.MainForm.resources
+C:\Users\jeton\Desktop\projet c sharp\stord\obj\Debug\Stord.Properties.Resources.resources
+C:\Users\jeton\Desktop\projet c sharp\stord\obj\Debug\projet_editeur.csproj.GenerateResource.cache
+C:\Users\jeton\Desktop\projet c sharp\stord\obj\Debug\projet_editeur.csproj.CoreCompileInputs.cache
+C:\Users\jeton\Desktop\projet c sharp\stord\obj\Debug\Stord.exe
+C:\Users\jeton\Desktop\projet c sharp\stord\obj\Debug\Stord.pdb
+C:\Users\jeton\Desktop\projet c sharp\stord\obj\Debug\projet_editeur.csprojAssemblyReference.cache
