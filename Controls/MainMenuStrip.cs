@@ -11,7 +11,7 @@ namespace WindowsForms_projet.Controls
     public class MainMenuStrip : MenuStrip
     {
         private const string NAME = "MainMenuStrip";
-
+        private CustomRichTextBox _customText;
         private MainForm _form;
         private FontDialog _fontDialog;
         private OpenFileDialog _openFileDialog;
@@ -20,12 +20,12 @@ namespace WindowsForms_projet.Controls
         {
             Name = NAME;
             Dock = DockStyle.Top;
-            BackColor = Color.FromArgb(35, 37, 46);
+            BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             ForeColor = Color.FromArgb(255, 255, 255);
             _fontDialog = new FontDialog();
             _openFileDialog = new OpenFileDialog();
             _saveFileDialog = new SaveFileDialog();
-
+            _customText = new CustomRichTextBox();
             //appel des fonctions de mon menu dans la classe MainMenuStrip
             FileMenu();
             EditMenu();
@@ -42,13 +42,26 @@ namespace WindowsForms_projet.Controls
         {
 
             var fileMenu = new ToolStripMenuItem("Fichier");
-            fileMenu.BackColor = Color.FromArgb(35, 37, 46);
+            fileMenu.BackColor = MainForm.colorNoir;
+            fileMenu.ForeColor = MainForm.colorBlanche;
             var newFile = new ToolStripMenuItem("Nouveau", null, null, Keys.Control | Keys.N);
+            newFile.BackColor= MainForm.colorNoir;
+            newFile.ForeColor = MainForm.colorBlanche;
+            newFile.Image = System.Drawing.Image.FromFile(@"..\..\Icons\New-icon.png");
             var open = new ToolStripMenuItem("Ouvrir", null, null, Keys.Control | Keys.O);
+            open.Image = System.Drawing.Image.FromFile(@"..\..\Icons\Open-icon.png");
+            open.BackColor= MainForm.colorNoir;
+            open.ForeColor = MainForm.colorBlanche;
             var save = new ToolStripMenuItem("Enregistrer", null, null, Keys.Control | Keys.S);
+            save.BackColor= MainForm.colorNoir;
+            save.ForeColor = MainForm.colorBlanche;
+            save.Image = System.Drawing.Image.FromFile(@"..\..\Icons\Save-icon.png");
             var saveAs = new ToolStripMenuItem("Enregistrer sous", null, null, Keys.Control | Keys.Shift | Keys.S);
+            saveAs.BackColor= MainForm.colorNoir;
+            saveAs.ForeColor = MainForm.colorBlanche;
             var quit = new ToolStripMenuItem("Quitter", null, null, Keys.Alt | Keys.F4);
-
+            quit.BackColor= MainForm.colorNoir;
+            quit.ForeColor = MainForm.colorBlanche;
             newFile.Click += (s, e) =>
              {
                  var tabControl = _form.MainTabControl;
@@ -166,10 +179,16 @@ namespace WindowsForms_projet.Controls
         public void EditMenu()
         {
             var editMenu = new ToolStripMenuItem("Edition");
-
+            editMenu.BackColor = MainForm.colorNoir;
+            editMenu.ForeColor = MainForm.colorBlanche;
             var Undo = new ToolStripMenuItem("Annuler", null, null, Keys.Control | Keys.Z);
+            Undo.BackColor = MainForm.colorNoir;
+            Undo.Image = System.Drawing.Image.FromFile(@"..\..\Icons\Undo-icon.png");
+            Undo.ForeColor = MainForm.colorBlanche;
             var Redo = new ToolStripMenuItem("Restaurer", null, null, Keys.Control | Keys.Y);
-            
+            Redo.BackColor = MainForm.colorNoir;
+            Redo.ForeColor = MainForm.colorBlanche;
+            Redo.Image = System.Drawing.Image.FromFile(@"..\..\Icons\Redo-icon.png");
             Undo.Click += (s, e) => { if (_form.CurrentRtb.CanUndo) _form.CurrentRtb.Undo(); };
             //Ssi on peut annuler alors on annule. Cancel= Undo, Restore = Redo
             Redo.Click += (s, e) => { if (_form.CurrentRtb.CanRedo) _form.CurrentRtb.Redo(); };
@@ -180,9 +199,11 @@ namespace WindowsForms_projet.Controls
         public void FormatMenu()
         {
             var formatMenu = new ToolStripMenuItem("Format");
-
+            
             //var FormMenu = new ToolStripMenuItem("Format");
             var FontMenu = new ToolStripMenuItem("Police");
+            FontMenu.BackColor = MainForm.colorNoir;
+            FontMenu.ForeColor = MainForm.colorBlanche;
             FontMenu.Click += (s, e) =>
             {
                 _fontDialog.Font = _form.CurrentRtb.Font;
@@ -197,13 +218,27 @@ namespace WindowsForms_projet.Controls
         {
 
             var viewMenu = new ToolStripMenuItem("Affichage");
-
             var alwaysMenu = new ToolStripMenuItem("Toujous devant");
+            alwaysMenu.BackColor = MainForm.colorNoir;
+            alwaysMenu.ForeColor = MainForm.colorBlanche;
             var zoomMenu = new ToolStripMenuItem("Zoom");
-
+            zoomMenu.BackColor = MainForm.colorNoir;
+            zoomMenu.ForeColor = MainForm.colorBlanche;
             var zoomStMenu = new ToolStripMenuItem("Zoom avant", null, null, Keys.Control | Keys.Add);
+            zoomStMenu.BackColor = MainForm.colorNoir;
+            zoomStMenu.ForeColor = MainForm.colorBlanche;
             var zoomDoMenu = new ToolStripMenuItem("Zoom arrière", null, null, Keys.Control | Keys.Subtract);
+            zoomDoMenu.BackColor = MainForm.colorNoir;
+            zoomDoMenu.ForeColor = MainForm.colorBlanche;
             var zoomReMenu = new ToolStripMenuItem("Zoom par défaut", null, null, Keys.Control | Keys.Divide);
+            zoomReMenu.BackColor = MainForm.colorNoir;
+            zoomReMenu.ForeColor = MainForm.colorBlanche;
+            /*var dark = new ToolStripMenuItem("Mode Sombre");
+            dark.BackColor = MainForm.colorNoir;
+            dark.ForeColor = MainForm.colorBlanche;
+            var clair = new ToolStripMenuItem("Mode Clair");
+            clair.ForeColor = MainForm.colorBlanche;
+            clair.BackColor = MainForm.colorNoir;*/
             zoomMenu.DropDownItems.AddRange(new ToolStripItem[] { zoomStMenu, zoomDoMenu, zoomReMenu });
 
             zoomStMenu.ShortcutKeyDisplayString = "Ctrl +";
@@ -211,6 +246,44 @@ namespace WindowsForms_projet.Controls
             zoomReMenu.ShortcutKeyDisplayString = "Ctrl /";
             viewMenu.DropDownItems.AddRange(new ToolStripItem[] { alwaysMenu, zoomMenu });
 
+            /*clair.Click += (s, e) =>
+            {
+                _form.BackColor = MainForm.colorBlanche;
+                _customText.BackColor = MainForm.colorBlanche;
+                this.BackColor = MainForm.colorBlanche;
+                this.ForeColor = MainForm.colorNoir;
+                alwaysMenu.BackColor = MainForm.colorBlanche;
+                alwaysMenu.ForeColor = MainForm.colorNoir;
+                zoomStMenu.BackColor = MainForm.colorBlanche;
+                zoomStMenu.ForeColor = MainForm.colorNoir;
+                zoomDoMenu.BackColor = MainForm.colorBlanche;
+                zoomDoMenu.ForeColor = MainForm.colorNoir;
+                zoomReMenu.BackColor = MainForm.colorBlanche;
+                zoomReMenu.ForeColor = MainForm.colorNoir;
+                clair.ForeColor = MainForm.colorNoir;
+                clair.BackColor = MainForm.colorBlanche;
+                dark.BackColor = MainForm.colorBlanche;
+                dark.ForeColor = MainForm.colorNoir;
+
+            };
+            dark.Click += (s, e) =>
+            {
+                alwaysMenu.BackColor = MainForm.colorNoir;
+                alwaysMenu.ForeColor = MainForm.colorBlanche;
+                zoomMenu.BackColor = MainForm.colorNoir;
+                zoomMenu.ForeColor = MainForm.colorBlanche;
+                zoomStMenu.BackColor = MainForm.colorNoir;
+                zoomStMenu.ForeColor = MainForm.colorBlanche;
+                zoomDoMenu.BackColor = MainForm.colorNoir;
+                zoomDoMenu.ForeColor = MainForm.colorBlanche;
+                zoomReMenu.BackColor = MainForm.colorNoir;
+                zoomReMenu.ForeColor = MainForm.colorBlanche;
+                dark.BackColor = MainForm.colorNoir;
+                dark.ForeColor = MainForm.colorBlanche;
+                clair.ForeColor = MainForm.colorBlanche;
+                clair.BackColor = MainForm.colorNoir;
+                
+            };*/
             alwaysMenu.Click += (s, e) =>
             {
                 if (alwaysMenu.Checked)
@@ -243,7 +316,10 @@ namespace WindowsForms_projet.Controls
 
             zoomReMenu.Click += (s, e) => { _form.CurrentRtb.ZoomFactor = 1F; };
             Items.Add(viewMenu);
+
+            
         }
+
 
     }
 }

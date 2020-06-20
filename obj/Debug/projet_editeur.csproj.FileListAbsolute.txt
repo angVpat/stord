@@ -8,16 +8,10 @@ C:\Users\jeton\source\repos\WindowsForms_projet\obj\Debug\projet_editeur.csproj.
 C:\Users\jeton\source\repos\WindowsForms_projet\obj\Debug\projet_editeur.csproj.CoreCompileInputs.cache
 C:\Users\jeton\source\repos\WindowsForms_projet\obj\Debug\WindowsForms_projet.exe
 C:\Users\jeton\source\repos\WindowsForms_projet\obj\Debug\WindowsForms_projet.pdb
-C:\Users\personnel\Documents\Programming Universe\Projects\projets en cour\prj c# - stord\bin\Debug\WindowsForms_projet.exe.config
-C:\Users\personnel\Documents\Programming Universe\Projects\projets en cour\prj c# - stord\bin\Debug\WindowsForms_projet.exe
-C:\Users\personnel\Documents\Programming Universe\Projects\projets en cour\prj c# - stord\bin\Debug\WindowsForms_projet.pdb
 C:\Users\personnel\Documents\Programming Universe\Projects\projets en cour\prj c# - stord\obj\Debug\projet_editeur.csprojAssemblyReference.cache
 C:\Users\personnel\Documents\Programming Universe\Projects\projets en cour\prj c# - stord\obj\Debug\WindowsForms_projet.MainForm.resources
-C:\Users\personnel\Documents\Programming Universe\Projects\projets en cour\prj c# - stord\obj\Debug\WindowsForms_projet.Properties.Resources.resources
 C:\Users\personnel\Documents\Programming Universe\Projects\projets en cour\prj c# - stord\obj\Debug\projet_editeur.csproj.GenerateResource.cache
 C:\Users\personnel\Documents\Programming Universe\Projects\projets en cour\prj c# - stord\obj\Debug\projet_editeur.csproj.CoreCompileInputs.cache
-C:\Users\personnel\Documents\Programming Universe\Projects\projets en cour\prj c# - stord\obj\Debug\WindowsForms_projet.exe
-C:\Users\personnel\Documents\Programming Universe\Projects\projets en cour\prj c# - stord\obj\Debug\WindowsForms_projet.pdb
 C:\Users\jeton\Documents\All\Ange\Ange\UNIVERS PROGRAMMATION\projetC#\stord\obj\Debug\projet_editeur.csprojAssemblyReference.cache
 C:\Users\jeton\Documents\All\Ange\Ange\UNIVERS PROGRAMMATION\projetC#\stord\obj\Debug\WindowsForms_projet.MainForm.resources
 C:\Users\jeton\Documents\All\Ange\Ange\UNIVERS PROGRAMMATION\projetC#\stord\obj\Debug\projet_editeur.csproj.GenerateResource.cache
@@ -28,3 +22,9 @@ C:\Users\jeton\Documents\All\Ange\Ange\UNIVERS PROGRAMMATION\projetC#\stord\bin\
 C:\Users\jeton\Documents\All\Ange\Ange\UNIVERS PROGRAMMATION\projetC#\stord\obj\Debug\Stord.Properties.Resources.resources
 C:\Users\jeton\Documents\All\Ange\Ange\UNIVERS PROGRAMMATION\projetC#\stord\obj\Debug\Stord.exe
 C:\Users\jeton\Documents\All\Ange\Ange\UNIVERS PROGRAMMATION\projetC#\stord\obj\Debug\Stord.pdb
+C:\Users\personnel\Documents\Programming Universe\Projects\projets en cour\prj c# - stord\bin\Debug\Stord.exe.config
+C:\Users\personnel\Documents\Programming Universe\Projects\projets en cour\prj c# - stord\bin\Debug\Stord.exe
+C:\Users\personnel\Documents\Programming Universe\Projects\projets en cour\prj c# - stord\bin\Debug\Stord.pdb
+C:\Users\personnel\Documents\Programming Universe\Projects\projets en cour\prj c# - stord\obj\Debug\Stord.Properties.Resources.resources
+C:\Users\personnel\Documents\Programming Universe\Projects\projets en cour\prj c# - stord\obj\Debug\Stord.exe
+C:\Users\personnel\Documents\Programming Universe\Projects\projets en cour\prj c# - stord\obj\Debug\Stord.pdb

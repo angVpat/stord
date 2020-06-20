@@ -14,8 +14,7 @@ namespace WindowsForms_projet.Controls
             ContextMenuStrip = new TabControlContextMS();
             Name = NAME;
             ContextMenuStrip contextMenuStrip;
-            BackColor = Color.FromArgb(35, 37, 46);
-            ForeColor = Color.FromArgb(255, 255, 255);
+            
             Dock = DockStyle.Fill;
 
             HandleCreated += (s, e) => 

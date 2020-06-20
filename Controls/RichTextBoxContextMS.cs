@@ -17,12 +17,19 @@ namespace WindowsForms_projet.Controls
             var Copy = new ToolStripMenuItem("Copier");
             var Paste = new ToolStripMenuItem("Coller");
             var SelectAll = new ToolStripMenuItem("Selectionner tout");
-            BackColor = Color.FromArgb(35, 37, 46);
-            ForeColor = Color.FromArgb(255, 255, 255);
+            
             Cut.Click += (s, e) => richtextBox.Cut();
+            Cut.BackColor = MainForm.colorNoir;
+            Cut.ForeColor = MainForm.colorBlanche;
             Copy.Click += (s, e) => richtextBox.Copy();
+            Copy.BackColor = MainForm.colorNoir;
+            Copy.ForeColor = MainForm.colorBlanche;
             Paste.Click += (s, e) => richtextBox.Paste();
+            Paste.BackColor = MainForm.colorNoir;
+            Paste.ForeColor = MainForm.colorBlanche;
             SelectAll.Click += (s, e) => richtextBox.SelectAll();
+            SelectAll.ForeColor = MainForm.colorBlanche;
+            SelectAll.BackColor = MainForm.colorNoir2;
             Items.AddRange(new ToolStripItem[] { Cut, Copy, Paste, SelectAll });
         }
     }

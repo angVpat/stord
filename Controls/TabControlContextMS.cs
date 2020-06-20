@@ -16,10 +16,14 @@ namespace WindowsForms_projet.Controls
             Name = NAME;
             //Instanciation et ajout des éléments de notre TabControlContextMS
             var closeTab = new ToolStripMenuItem("Fermer");
+            closeTab.BackColor = MainForm.colorNoir;
+            closeTab.ForeColor = MainForm.colorBlanche;
             var AllTabExceptThis = new ToolStripMenuItem("Tout fermer sauf ce fichier");
+            AllTabExceptThis.BackColor = MainForm.colorNoir;
+            AllTabExceptThis.ForeColor = MainForm.colorBlanche;
             var OpenFileInEx = new ToolStripMenuItem("Ouvrir le répertoire du fichier en cours dans l'explorateur");
-            BackColor = Color.FromArgb(35, 37, 46);
-            ForeColor = Color.FromArgb(255, 255, 255);
+            OpenFileInEx.BackColor = MainForm.colorNoir2;
+            OpenFileInEx.ForeColor = MainForm.colorBlanche;
             Items.AddRange(new ToolStripItem[] { closeTab, AllTabExceptThis, OpenFileInEx });
 
             HandleCreated += (s, e) =>

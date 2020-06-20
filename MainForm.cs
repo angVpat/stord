@@ -14,6 +14,10 @@ namespace WindowsForms_projet
         public TabControl MainTabControl;
         public TextFile CurrentFile;
         public Session Session;
+        public static Color colorNoir= Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+        public static Color colorNoir2 = Color.FromArgb(30, 30, 30);
+        public static Color colorBlanche= Color.FromArgb(255, 255, 255);
+
         public MainForm()
         {
             InitializeComponent();
@@ -22,12 +26,11 @@ namespace WindowsForms_projet
             var menuStrip = new MainMenuStrip();
             MainTabControl = new MainTabControl();
             //MainTabControl.Padding = new Point(12, 12);
-            BackColor = Color.FromArgb(35, 37, 46);
-            ForeColor = Color.FromArgb(255, 255, 255);
+            BackColor = colorNoir;
+            ForeColor = colorBlanche;
             //MainTabControl.Appearance = TabAppearance.Buttons;
 
-            MainTabControl.BackColor = Color.FromArgb(35, 37, 46);
-            MainTabControl.ForeColor = Color.FromArgb(255, 255, 255);
+
 
             Controls.AddRange(new Control[] { MainTabControl, menuStrip });
 
